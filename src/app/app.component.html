@@ -1,6 +1,20 @@
-<app-header [userName]="currentUser"
-            [profilePicture]="userPicture"
-            [logo]="logoPath"></app-header>
-<app-left-nav-bar [links]="navBarLinks"></app-left-nav-bar>
-<app-footer [links]="navBarLinks"></app-footer>
+<div class="container">
+  <div class="header-space">
+    <app-header [userName]="currentUser"
+                [profilePicture]="userPicture"
+                [logo]="logoPath"></app-header>
+  </div>
+  <div class="sidebar-space">
+    <app-left-nav-bar [links]="navBarLinks"></app-left-nav-bar>
+  </div>
+  <div class="main-space">
+
+  </div>
+  <div class="footer-space">
+    <app-footer [links]="navBarLinks"></app-footer>
+  </div>
+</div>
+
+
+
 <router-outlet></router-outlet>
