@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Link} from "../app.component";
 
 @Component({
   selector: 'app-left-nav-bar',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./left-nav-bar.component.scss']
 })
 export class LeftNavBarComponent {
+  @Input() links: Link[] = [];
 
 }

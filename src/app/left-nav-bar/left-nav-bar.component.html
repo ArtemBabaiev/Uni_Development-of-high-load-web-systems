@@ -1,1 +1,12 @@
-<p>left-nav-bar works!</p>
+<div class="navbar">
+  <ul>
+    <ng-container *ngFor="let link of links">
+      <li>
+        <div [ngClass]="{'default': !link.active,
+                          'active': link.active}">
+          <a href="">{{link.label}}</a>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>
