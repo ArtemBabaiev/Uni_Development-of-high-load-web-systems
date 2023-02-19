@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularLab';
+  logoPath: string = "/assets/images/logo.svg";
+  currentUser: string = "Art_B"
+  userPicture: string = "/assets/images/user.svg"
+
 }
