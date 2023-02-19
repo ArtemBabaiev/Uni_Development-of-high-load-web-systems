@@ -3,7 +3,8 @@
   <ul>
     <ng-container *ngFor="let link of links">
       <li>
-        <a href="">{{link.label}}</a>
+        <a href="" [ngClass]="{'default': !link.active,
+                          'active': link.active}" >{{link.label}}</a>
       </li>
     </ng-container>
   </ul>
