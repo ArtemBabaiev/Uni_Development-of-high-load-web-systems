@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,4 +11,24 @@ export class AppComponent {
   currentUser: string = "Art_B"
   userPicture: string = "/assets/images/user.svg"
 
+  navBarLinks: Link[] = [
+    {
+      label: "Home",
+      active: true,
+    },
+    {
+      label: "Point",
+      active: false,
+    },
+    {
+      label: "About",
+      active: false,
+    }
+  ]
+
+}
+
+export interface Link {
+  label: string;
+  active: boolean;
 }
