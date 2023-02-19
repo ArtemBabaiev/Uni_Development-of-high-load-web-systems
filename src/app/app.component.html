@@ -2,19 +2,48 @@
   <div class="header-space">
     <app-header [userName]="currentUser"
                 [profilePicture]="userPicture"
-                [logo]="logoPath"></app-header>
+                [logo]="logoPath" (logoClick)="helloMessage = $event"></app-header>
   </div>
   <div class="sidebar-space">
     <app-left-nav-bar [links]="navBarLinks"></app-left-nav-bar>
   </div>
-  <div class="main-space">
 
+  <div class="main-space content">
+    <div *ngIf="helloMessage.length>0">
+      <p class="hello-message" [ngStyle]="{'color': 'red', 'text-align': 'center'}">
+        {{helloMessage}}
+      </p>
+      <ng-container *ngIf="!isTableView else grid">
+        <ul>
+          <ng-container *ngFor="let datum of data">
+            <li *ngIf="datum.visibility" [ngSwitch]="datum.type">
+              <span *ngSwitchCase="1">{{datum.name}}</span>
+              <span *ngSwitchCase="2">{{datum.category}}</span>
+              <span *ngSwitchCase="3">{{datum.quantity}}</span>
+            </li>
+          </ng-container>
+        </ul>
+      </ng-container>
+      <ng-template #grid>
+        <div class="grid-view">
+          <ng-container *ngFor="let datum of data">
+            <div class="grid-item">
+              <img [src]="datum.imgSource" alt="">
+              <p>{{datum.name}}</p>
+              <p>{{datum.category}}</p>
+              <p>{{datum.quantity}}</p>
+            </div>
+          </ng-container>
+        </div>
+      </ng-template>
+      <button (click)="changeViewClick()">Change view</button>
+    </div>
   </div>
+
   <div class="footer-space">
     <app-footer [links]="navBarLinks"></app-footer>
   </div>
 </div>
-
 
 
 <router-outlet></router-outlet>

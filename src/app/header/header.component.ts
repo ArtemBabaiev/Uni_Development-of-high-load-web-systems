@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +9,10 @@ export class HeaderComponent {
   @Input() userName: string = "";
   @Input() logo: string = "";
   @Input() profilePicture: string = "";
+
+  @Output() logoClick = new EventEmitter<string>();
+
+  onLogoClickEvent(){
+    this.logoClick.emit("«Привіт світ!»");
+  }
 }
