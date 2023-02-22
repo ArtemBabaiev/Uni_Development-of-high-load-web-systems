@@ -3,8 +3,9 @@
     <ng-container *ngFor="let link of links">
       <li>
         <div [ngClass]="{'default': !link.active,
-                          'active': link.active}">
-          <a href="">{{link.label}}</a>
+                          'active': link.active}"
+             (click)="onLinkClick(link.label)">
+          <a href="#">{{link.label}}</a>
         </div>
       </li>
     </ng-container>

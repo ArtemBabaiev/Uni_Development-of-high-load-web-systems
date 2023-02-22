@@ -1,8 +1,9 @@
 <div class="container">
-  <div class="header-space">
+  <div class="header-space"S>
     <app-header [userName]="currentUser"
                 [profilePicture]="userPicture"
-                [logo]="logoPath" (logoClick)="helloMessage = $event"></app-header>
+                [logo]="logoPath"
+                (logoClick)="helloMessage = $event"></app-header>
   </div>
   <div class="sidebar-space">
     <app-left-nav-bar [links]="navBarLinks"></app-left-nav-bar>
