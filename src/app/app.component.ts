@@ -17,7 +17,7 @@ export class AppComponent {
       active: true,
     },
     {
-      label: "Point",
+      label: "Contacts",
       active: false,
     },
     {
