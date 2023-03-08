@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="header-space"S>
+  <div class="header-space">
     <app-header [userName]="currentUser"
                 [profilePicture]="userPicture"
                 [logo]="logoPath"
@@ -10,35 +10,7 @@
   </div>
 
   <div class="main-space content">
-    <div *ngIf="helloMessage.length>0">
-      <p class="hello-message" [ngStyle]="{'color': 'red', 'text-align': 'center'}">
-        {{helloMessage}}
-      </p>
-      <ng-container *ngIf="!isTableView else grid">
-        <ul>
-          <ng-container *ngFor="let datum of data">
-            <li *ngIf="datum.visibility" [ngSwitch]="datum.type">
-              <span *ngSwitchCase="1">{{datum.name}}</span>
-              <span *ngSwitchCase="2">{{datum.category}}</span>
-              <span *ngSwitchCase="3">{{datum.quantity}}</span>
-            </li>
-          </ng-container>
-        </ul>
-      </ng-container>
-      <ng-template #grid>
-        <div class="grid-view">
-          <ng-container *ngFor="let datum of data">
-            <div class="grid-item">
-              <img [src]="datum.imgSource" alt="">
-              <p>{{datum.name}}</p>
-              <p>{{datum.category}}</p>
-              <p>{{datum.quantity}}</p>
-            </div>
-          </ng-container>
-        </div>
-      </ng-template>
-      <button (click)="changeViewClick()">Change view</button>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 
   <div class="footer-space">
@@ -47,4 +19,34 @@
 </div>
 
 
-<router-outlet></router-outlet>
+
+<!--
+<div *ngIf="helloMessage.length>0">
+  <p class="hello-message" [ngStyle]="{'color': 'red', 'text-align': 'center'}">
+    {{helloMessage}}
+  </p>
+  <ng-container *ngIf="!isTableView else grid">
+    <ul>
+      <ng-container *ngFor="let datum of data">
+        <li *ngIf="datum.visibility" [ngSwitch]="datum.type">
+          <span *ngSwitchCase="1">{{datum.name}}</span>
+          <span *ngSwitchCase="2">{{datum.category}}</span>
+          <span *ngSwitchCase="3">{{datum.quantity}}</span>
+        </li>
+      </ng-container>
+    </ul>
+  </ng-container>
+  <ng-template #grid>
+    <div class="grid-view">
+      <ng-container *ngFor="let datum of data">
+        <div class="grid-item">
+          <img [src]="datum.imgSource" alt="">
+          <p>{{datum.name}}</p>
+          <p>{{datum.category}}</p>
+          <p>{{datum.quantity}}</p>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+  <button (click)="changeViewClick()">Change view</button>
+</div>-->
