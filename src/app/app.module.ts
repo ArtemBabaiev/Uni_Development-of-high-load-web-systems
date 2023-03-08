@@ -11,6 +11,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { Page404Component } from './page404/page404.component';
 import { UserdataComponent } from './userdata/userdata.component';
+import { HoursPipe } from './hours.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserdataComponent } from './userdata/userdata.component';
     AboutComponent,
     HomeComponent,
     Page404Component,
-    UserdataComponent
+    UserdataComponent,
+    HoursPipe
   ],
   imports: [
     BrowserModule,

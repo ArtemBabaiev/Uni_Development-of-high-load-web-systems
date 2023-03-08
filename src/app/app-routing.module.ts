@@ -5,11 +5,13 @@ import {AboutComponent} from "./about/about.component";
 import {ContactsComponent} from "./contacts/contacts.component";
 import {Page404Component} from "./page404/page404.component";
 import {Title} from "@angular/platform-browser";
+import {UserdataComponent} from "./userdata/userdata.component";
 
 const routes: Routes = [
   {path: "home", component: HomeComponent, title: "Home Page"},
   {path: "about", component: AboutComponent, title: "About Page"},
   {path: "contacts", component: ContactsComponent, title: "Contacts Page"},
+  {path: "users/:id", component: UserdataComponent, title: "User Data Page"},
   {path: "", redirectTo: "/home", pathMatch: "full"},
   {path: "**", component: Page404Component, title: "404 Page"}
 ];
