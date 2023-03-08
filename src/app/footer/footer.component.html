@@ -1,15 +1,27 @@
 <div class="footer">
-
   <ul>
-    <ng-container *ngFor="let link of links">
-      <li (click)="onLinkClick(link.label)">
-        <a href="E"
-           [ngClass]="{'default': !link.active, 'active': link.active}">
-          {{link.label}}
-        </a>
-      </li>
-    </ng-container>
+    <li>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+    </li>
+    <li>
+      <a routerLink="/contacts" routerLinkActive="active">Contacts</a>
+    </li>
+    <li>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+    </li>
   </ul>
 
   <p>©AngularLab 2023</p>
 </div>
+
+<!--
+<ul>
+  <ng-container *ngFor="let link of links">
+    <li (click)="onLinkClick(link.label)">
+      <a href="E"
+         [ngClass]="{'default': !link.active, 'active': link.active}">
+        {{link.label}}
+      </a>
+    </li>
+  </ng-container>
+</ul>-->
