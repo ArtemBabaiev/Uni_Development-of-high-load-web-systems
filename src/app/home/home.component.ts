@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+export const USERS_STORAGE_KEY = "users";
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   users: User[] = [
     {
       id: 1,
@@ -24,6 +27,12 @@ export class HomeComponent {
       workingHours: 12345
     }
   ]
+
+  ngOnInit(): void {
+    if (localStorage.getItem(USERS_STORAGE_KEY) == undefined){
+      localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(this.users))
+    }
+  }
 }
 export interface User {
   id: number,
