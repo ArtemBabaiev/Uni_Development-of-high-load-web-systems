@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {User, USERS_STORAGE_KEY} from "../home/home.component";
+import {User, USERS_STORAGE_KEY} from "../app.component";
 
 @Component({
   selector: 'app-userdata',
