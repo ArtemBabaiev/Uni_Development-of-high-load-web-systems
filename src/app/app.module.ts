@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { Page404Component } from './page404/page404.component';
 import { UserdataComponent } from './userdata/userdata.component';
 import { HoursPipe } from './hours.pipe';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HoursPipe } from './hours.pipe';
     HomeComponent,
     Page404Component,
     UserdataComponent,
-    HoursPipe
+    HoursPipe,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
