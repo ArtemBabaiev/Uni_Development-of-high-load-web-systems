@@ -1,0 +1,13 @@
+ul{
+  list-style-type: none;
+  li{
+    display: flex;
+    flex-direction: column;
+  }
+  label{
+    width: 200px;
+  }
+  button{
+    width: fit-content;
+  }
+}

@@ -1,1 +1,73 @@
-<p>user-form works!</p>
+<form (ngSubmit)="onSubmit()">
+  <ul>
+    <li>
+      <label>
+        ID:
+        <input type="text">
+      </label>
+    </li>
+    <li>
+      <label>
+        Name:
+        <input type="text">
+      </label>
+    </li>
+    <li>
+      <label>
+        Lastname:
+        <input type="text">
+      </label>
+    </li>
+    <li>
+      <label>
+        Type:
+        <div>
+          <input type="radio" name="type" id="1" value="1">
+          <input type="radio" name="type" id="2" value="2">
+          <input type="radio" name="type" id="3" value="3">
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        Password:
+        <input type="password">
+      </label>
+    </li>
+    <li>
+      <label>
+        Confirm password:
+        <input type="password">
+      </label>
+    </li>
+    <li>
+      <label>
+        Subjects:
+      </label>
+    </li>
+    <li>
+      <label>
+        Description:
+        <textarea></textarea>
+      </label>
+    </li>
+    <li>
+      <label>
+        Sex:
+        <div>
+          <input type="checkbox" name="sex" id="male">Male
+        </div>
+      </label>
+    </li>
+    <li>
+      <label>
+        Phone:
+        <input type="text" name="tel" id="tel">
+      </label>
+    </li>
+    <li>
+      <button type="submit">Save</button>
+
+    </li>
+  </ul>
+</form>
