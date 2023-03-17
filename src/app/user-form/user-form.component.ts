@@ -47,6 +47,9 @@ export class UserFormComponent implements OnInit{
 
 
   onSubmit() {
+    if (!this.userForm.controls["id"].untouched || this.userForm.controls["id"].dirty){
+      return
+    }
     let possibleId = this.userForm.controls["id"].value;
 
     let newUser: FormUser = {
