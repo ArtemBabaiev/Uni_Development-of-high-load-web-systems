@@ -1,73 +1,104 @@
-<form (ngSubmit)="onSubmit()">
-  <ul>
-    <li>
-      <label>
-        ID:
-        <input type="text">
-      </label>
-    </li>
-    <li>
-      <label>
-        Name:
-        <input type="text">
-      </label>
-    </li>
-    <li>
-      <label>
-        Lastname:
-        <input type="text">
-      </label>
-    </li>
-    <li>
-      <label>
-        Type:
-        <div>
-          <input type="radio" name="type" id="1" value="1">
-          <input type="radio" name="type" id="2" value="2">
-          <input type="radio" name="type" id="3" value="3">
-        </div>
-      </label>
-    </li>
-    <li>
-      <label>
-        Password:
-        <input type="password">
-      </label>
-    </li>
-    <li>
-      <label>
-        Confirm password:
-        <input type="password">
-      </label>
-    </li>
-    <li>
-      <label>
-        Subjects:
-      </label>
-    </li>
-    <li>
-      <label>
-        Description:
-        <textarea></textarea>
-      </label>
-    </li>
-    <li>
-      <label>
-        Sex:
-        <div>
-          <input type="checkbox" name="sex" id="male">Male
-        </div>
-      </label>
-    </li>
-    <li>
-      <label>
-        Phone:
-        <input type="text" name="tel" id="tel">
-      </label>
-    </li>
-    <li>
-      <button type="submit">Save</button>
+<div style="display: flex">
+  <div>
+    <button (click)="resetForm()">Reset</button>
+    <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+      <ul>
+          <li>
+            <label>
+              ID:
+              <input type="text" formControlName="id">
+            </label>
+          </li>
+        <li>
+          <label>
+            Name:
+            <input type="text" id="name" formControlName="name">
+          </label>
+        </li>
+        <li>
+          <label>
+            Lastname:
+            <input type="text" id="lastname" formControlName="lastname">
+          </label>
+        </li>
+        <li>
+          <div>
+            Type:
+            <select name="select" formControlName="type">
+              <option value="default" selected hidden>--SELECT TYPE---</option>
+              <option value="type A">Type A</option>
+              <option value="type B">Type B</option>
+              <option value="type C">Type C</option>
+            </select>
+          </div>
+        </li>
+        <li>
+          <label>
+            Email:
+            <input type="email" formControlName="email">
+          </label>
+        </li>
+        <li>
+          <label>
+            Password:
+            <input type="password" formControlName="password">
+          </label>
+        </li>
+        <ng-container *ngIf="userForm.controls['id'].value == null">
+          <li>
+            <label>
+              Confirm password:
+              <input type="password" formControlName="confirmPassword">
+            </label>
+          </li>
+        </ng-container>
+        <li>
+          <div>
+            Subjects:
+            <div formArrayName="subjects" *ngFor="let subject of subjects.controls; let i = index"
+                 style="display: flex; flex-direction: column">
+              <label>
+                Subject-{{i}}
+                <input type="text" formControlName="{{i}}">
+              </label>
+            </div>
+            <button (click)="addSubject()" type="button">+</button>
+          </div>
+        </li>
+        <li>
+          <label>
+            Description:
+            <textarea formControlName="description"></textarea>
+          </label>
+        </li>
+        <li>
+          <label>
+            Sex:
+            <div>
+              <input type="checkbox" name="sex" formControlName="sex">Male
+            </div>
+          </label>
+        </li>
+        <li>
+          <label>
+            Phone:
+            <input type="text" name="tel" formControlName="phone">
+          </label>
+        </li>
+        <li>
+          <button type="submit"
+                  [disabled]="userForm.invalid">
+            Save
+          </button>
 
-    </li>
-  </ul>
-</form>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div>
+    <ul *ngFor="let user of savedUsers" class="user-list">
+      <li (click)="setUserToEdit(user.id)">{{user.id}}-{{user.name}}</li>
+    </ul>
+  </div>
+</div>
+

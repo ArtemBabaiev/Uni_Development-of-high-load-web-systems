@@ -1,13 +1,18 @@
 ul{
   list-style-type: none;
-  li{
+
+  li>label, li>div{
+    width: 200px;
     display: flex;
     flex-direction: column;
   }
-  label{
-    width: 200px;
-  }
   button{
     width: fit-content;
+  }
+}
+.user-list{
+  li:hover{
+    font-weight: bold;
+    cursor: pointer;
   }
 }
