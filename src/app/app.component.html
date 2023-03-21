@@ -2,11 +2,11 @@
   <app-header [userName]="currentUser"
               [profilePicture]="userPicture"
               [logo]="logoPath"></app-header>
-  <div fxLayout="row" fxLayoutGap="15px">
+  <div fxLayout="row" fxLayoutGap="15px" >
     <div fxFlex.xs="120px" fxFlex.sm="135px" fxFlex="150px" fxLayout="column">
       <app-left-nav-bar [links]="routedLinks"></app-left-nav-bar>
     </div>
-    <div>
+    <div style="width: 100%">
       <router-outlet></router-outlet>
     </div>
   </div>
