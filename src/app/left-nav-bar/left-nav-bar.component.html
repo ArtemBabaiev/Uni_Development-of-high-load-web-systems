@@ -1,9 +1,14 @@
 <div class="navbar">
-  <ul *ngFor="let link of links">
-    <li>
-      <a [routerLink]="link.path" routerLinkActive="active">{{link.label}}</a>
-    </li>
-   <!-- <li>
+  <ul>
+    <ng-container *ngFor="let link of links">
+      <li>
+        <a [routerLink]="link.path" routerLinkActive="active">{{link.label}}</a>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+<!-- <li>
       <a routerLink="/home" routerLinkActive="active">Home</a>
     </li>
     <li>
@@ -12,8 +17,6 @@
     <li>
       <a routerLink="/about" routerLinkActive="active">About</a>
     </li>-->
-  </ul>
-</div>
 
 <!--
 <ng-container *ngFor="let link of links">

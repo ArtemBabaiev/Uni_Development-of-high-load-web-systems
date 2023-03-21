@@ -1,8 +1,10 @@
 <div class="footer">
-  <ul *ngFor="let link of links">
-    <li>
-      <a [routerLink]="link.path" routerLinkActive="active">{{link.label}}</a>
-    </li>
+  <ul>
+    <ng-container *ngFor="let link of links">
+      <li>
+        <a [routerLink]="link.path" routerLinkActive="active">{{link.label}}</a>
+      </li>
+    </ng-container>
   </ul>
 
   <p>©AngularLab 2023</p>
