@@ -9,6 +9,11 @@ export const USERS_STORAGE_KEY = "users";
 })
 export class AppComponent implements OnInit{
 
+  title = 'AngularLab';
+  logoPath: string = "/assets/images/logo.svg";
+  currentUser: string = "Art_B"
+  userPicture: string = "/assets/images/user.svg"
+
   users: User[] = [
     {
       id: 1,
@@ -34,12 +39,7 @@ export class AppComponent implements OnInit{
     }
   }
 
-  title = 'AngularLab';
-  logoPath: string = "/assets/images/logo.svg";
-  currentUser: string = "Art_B"
-  userPicture: string = "/assets/images/user.svg"
-
-  navBarLinks: Link[] = [
+  /*navBarLinks: Link[] = [
     {
       label: "Home",
       active: true,
@@ -52,12 +52,10 @@ export class AppComponent implements OnInit{
       label: "About",
       active: false,
     }
-  ]
-
-  isTableView: boolean = false;
-
-  helloMessage: string = "";
-  data = [
+  ]*/
+  /*isTableView: boolean = false;
+  helloMessage: string = "";*/
+  /*data = [
     {
       type: 1,
       visibility: true,
@@ -93,11 +91,11 @@ export class AppComponent implements OnInit{
       imgSource: "/assets/images/placeholder.svg"
 
     }
-  ];
+  ];*/
 
-  changeViewClick(){
+  /*changeViewClick(){
     this.isTableView = !this.isTableView;
-  }
+  }*/
 }
 export interface User {
   id: number,

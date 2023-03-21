@@ -1,3 +1,11 @@
+<app-header [userName]="currentUser"
+            [profilePicture]="userPicture"
+            [logo]="logoPath"></app-header>
+<app-left-nav-bar></app-left-nav-bar>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+
+<!--
 <div class="container">
   <div class="header-space">
     <app-header [userName]="currentUser"
@@ -17,6 +25,7 @@
     <app-footer [links]="navBarLinks"></app-footer>
   </div>
 </div>
+-->
 
 
 
