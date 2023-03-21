@@ -1,9 +1,19 @@
-<app-header [userName]="currentUser"
-            [profilePicture]="userPicture"
-            [logo]="logoPath"></app-header>
-<app-left-nav-bar [links]="routedLinks"></app-left-nav-bar>
-<router-outlet></router-outlet>
-<app-footer [links]="routedLinks"></app-footer>
+<div fxLayout="column" fxFlexFill>
+  <app-header [userName]="currentUser"
+              [profilePicture]="userPicture"
+              [logo]="logoPath"></app-header>
+  <div fxLayout="row" fxLayoutGap="15px">
+    <div fxFlex.xs="120px" fxFlex.sm="135px" fxFlex="150px" fxLayout="column">
+      <app-left-nav-bar [links]="routedLinks"></app-left-nav-bar>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <app-footer [links]="routedLinks" fxFlexOffset="auto"></app-footer>
+</div>
+
 
 <!--
 <div class="container">
@@ -26,7 +36,6 @@
   </div>
 </div>
 -->
-
 
 
 <!--

@@ -1,12 +1,12 @@
-<div class="navbar">
-  <ul>
+<section class="navbar">
+  <ul fxLayout="column" fxLayoutGap="5px">
     <ng-container *ngFor="let link of links">
       <li>
         <a [routerLink]="link.path" routerLinkActive="active">{{link.label}}</a>
       </li>
     </ng-container>
   </ul>
-</div>
+</section>
 
 <!-- <li>
       <a routerLink="/home" routerLinkActive="active">Home</a>

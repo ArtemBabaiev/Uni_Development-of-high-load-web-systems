@@ -1,15 +1,14 @@
 .navbar{
-  background-color: #149fb2;
+  padding: 5px;
   ul{
     margin: 0;
-    padding: 15px;
+    padding: 0;
     list-style-type: none;
     li{
-      width: 100px;
-      padding: 5px 10px;
-      border: 1px solid white;
+      border: 1px solid black;
       border-radius: 5px;
       a{
+        padding: 5px 10px;
         width: inherit;
         height: inherit;
         text-decoration: none;
@@ -20,9 +19,6 @@
     }
     li:has(a.active) {
       background-color: #e76d58;
-    }
-    li:not(:last-child) {
-      margin-bottom: 3px;
     }
   }
 }
