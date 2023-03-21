@@ -7,10 +7,9 @@ import {Link} from "../app.component";
   styleUrls: ['./left-nav-bar.component.scss']
 })
 export class LeftNavBarComponent {
-  @Input() links: Link[] = [];
 
+  /*@Input() links: Link[] = [];
   @Output() linkClick = new EventEmitter<Link[]>();
-
   onLinkClick(label: string){
     for (const link of this.links) {
       if (link.label === label){
@@ -19,6 +18,6 @@ export class LeftNavBarComponent {
       else{link.active = false;}
     }
     return this.links;
-  }
+  }*/
 
 }
