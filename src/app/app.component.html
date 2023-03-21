@@ -1,9 +1,9 @@
 <app-header [userName]="currentUser"
             [profilePicture]="userPicture"
             [logo]="logoPath"></app-header>
-<app-left-nav-bar></app-left-nav-bar>
+<app-left-nav-bar [links]="routedLinks"></app-left-nav-bar>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer [links]="routedLinks"></app-footer>
 
 <!--
 <div class="container">

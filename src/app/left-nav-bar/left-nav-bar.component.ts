@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Link} from "../app.component";
+import {Component, Input} from '@angular/core';
+import { RoutedLink} from "../app.component";
 
 @Component({
   selector: 'app-left-nav-bar',
@@ -7,6 +7,8 @@ import {Link} from "../app.component";
   styleUrls: ['./left-nav-bar.component.scss']
 })
 export class LeftNavBarComponent {
+
+  @Input() links: RoutedLink[] = [];
 
   /*@Input() links: Link[] = [];
   @Output() linkClick = new EventEmitter<Link[]>();

@@ -33,6 +33,25 @@ export class AppComponent implements OnInit{
     }
   ]
 
+  routedLinks: RoutedLink[] = [
+    {
+      label: "Home",
+      path: "/home"
+    },
+    {
+      label: "Contacts",
+      path: "/contacts"
+    },
+    {
+      label: "About",
+      path: "/about"
+    },
+    {
+      label: "User form",
+      path: "/userform"
+    },
+  ]
+
   ngOnInit(): void {
     if (localStorage.getItem(USERS_STORAGE_KEY) == undefined){
       localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(this.users))
@@ -109,4 +128,9 @@ export interface User {
 export interface Link {
   label: string;
   active: boolean;
+}
+
+export interface RoutedLink {
+  label: string;
+  path: string;
 }
