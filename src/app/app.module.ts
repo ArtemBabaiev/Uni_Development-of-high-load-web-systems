@@ -13,6 +13,7 @@ import { Page404Component } from './page404/page404.component';
 import { UserdataComponent } from './userdata/userdata.component';
 import { HoursPipe } from './hours.pipe';
 import { UserFormComponent } from './user-form/user-form.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
