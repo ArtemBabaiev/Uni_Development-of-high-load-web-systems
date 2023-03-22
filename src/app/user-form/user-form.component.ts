@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators
 } from "@angular/forms";
+import {MatSnackBar } from "@angular/material/snack-bar";
 
 const EMAIL_REGEX = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
 const PASSWORD_REGEX = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$")
@@ -43,7 +44,7 @@ export class UserFormComponent implements OnInit{
       validators: this.checkPassword("password", "confirmPassword")
     });
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -139,6 +140,11 @@ export class UserFormComponent implements OnInit{
       sex: "true"
     });
   }
+
+  openSnackBar() {
+    this._snackBar.open("User saved", "Close");
+  }
+
 }
 
 interface FormUser {

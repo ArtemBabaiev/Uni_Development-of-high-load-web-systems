@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayout.xs="column-reverse" fxLayoutAlign="start" fxLayoutAlign.xs="space-around start" fxFlexFill fxLayoutGap="25px">
   <div fxFlex="30" fxFlex.xs="auto">
-    <form (ngSubmit)="onSubmit()" [formGroup]="userForm" fxLayout="column">
+    <form (ngSubmit)="onSubmit(); openSnackBar()" [formGroup]="userForm" fxLayout="column">
       <mat-form-field>
         <mat-label>
           ID:
@@ -95,6 +95,7 @@
 
     </form>
   </div>
+  <mat-divider [vertical]="true"></mat-divider>
   <div>
     <mat-list class="user-list">
       <ng-container *ngFor="let user of savedUsers" class="user-list">

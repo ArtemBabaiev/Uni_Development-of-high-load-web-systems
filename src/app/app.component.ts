@@ -36,19 +36,23 @@ export class AppComponent implements OnInit{
   routedLinks: RoutedLink[] = [
     {
       label: "Home",
-      path: "/home"
+      path: "/home",
+      icon: "home"
     },
     {
       label: "Contacts",
-      path: "/contacts"
+      path: "/contacts",
+      icon: "contacts"
     },
     {
       label: "About",
-      path: "/about"
+      path: "/about",
+      icon: "info"
     },
     {
       label: "User form",
-      path: "/userform"
+      path: "/userform",
+      icon: "dashboard"
     },
   ]
 
@@ -133,4 +137,5 @@ export interface Link {
 export interface RoutedLink {
   label: string;
   path: string;
+  icon: string;
 }

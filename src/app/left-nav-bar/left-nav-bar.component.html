@@ -1,7 +1,8 @@
 <section class="navbar">
   <ul fxLayout="column" fxLayoutGap="5px">
     <ng-container *ngFor="let link of links">
-      <li>
+      <li fxLayout="row" fxLayoutAlign="start center">
+        <mat-icon>{{link.icon}}</mat-icon>
         <a [routerLink]="link.path" routerLinkActive="active">{{link.label}}</a>
       </li>
     </ng-container>
