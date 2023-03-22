@@ -1,76 +1,108 @@
-<div fxLayout="row" fxLayout.xs="column-reverse" fxLayoutAlign="space-evenly start" fxLayoutAlign.xs="space-around start" fxFlexFill fxLayoutGap="25px">
-  <div>
-    <button (click)="resetForm()">Reset</button>
-    <form (ngSubmit)="onSubmit()" [formGroup]="userForm" fxLayout="column" fxLayoutGap="5px" >
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        ID:
-        <input type="text" formControlName="id">
-      </label>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Name:
-        <input type="text" id="name" formControlName="name">
-      </label>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Lastname:
-        <input type="text" id="lastname" formControlName="lastname">
-      </label>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
+<div fxLayout="row" fxLayout.xs="column-reverse" fxLayoutAlign="start" fxLayoutAlign.xs="space-around start" fxFlexFill fxLayoutGap="25px">
+  <div fxFlex="30" fxFlex.xs="auto">
+    <form (ngSubmit)="onSubmit()" [formGroup]="userForm" fxLayout="column">
+      <mat-form-field>
+        <mat-label>
+          ID:
+        </mat-label>
+        <input type="text" formControlName="id" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          Name:
+        </mat-label>
+        <input type="text" id="name" formControlName="name" matInput>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>
+          Lastname:
+        </mat-label>
+        <input type="text" id="lastname" formControlName="lastname" matInput>
+      </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>
         Type:
-        <select name="select" formControlName="type">
-          <option value="default" selected hidden>--SELECT TYPE---</option>
-          <option value="type A">Type A</option>
-          <option value="type B">Type B</option>
-          <option value="type C">Type C</option>
-        </select>
-      </label>
+      </mat-label>
+      <mat-select formControlName="type">
+        <ng-container *ngFor="let tp of types">
+          <mat-option [value]="tp">{{tp}}</mat-option>
+        </ng-container>
+      </mat-select>
+    </mat-form-field>
+
       <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Email:
-        <input type="email" formControlName="email">
+
       </label>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Password:
-        <input type="password" formControlName="password">
-      </label>
+
+      <mat-form-field>
+        <mat-label>
+          Email:
+        </mat-label>
+        <input type="email" formControlName="email" matInput>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>
+          Password:
+        </mat-label>
+        <input type="password" formControlName="password" matInput>
+      </mat-form-field>
+
       <ng-container *ngIf="userForm.controls['id'].value == null">
-        <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-          Confirm password:
-          <input type="password" formControlName="confirmPassword">
-        </label>
+        <mat-form-field>
+          <mat-label>
+            Confirm password:
+          </mat-label>
+          <input type="password" formControlName="confirmPassword" matInput>
+        </mat-form-field>
       </ng-container>
-      <div formArrayName="subjects" *ngFor="let subject of subjects.controls; let i = index" class="label"
-           style="display: flex; flex-direction: column">
-        <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-          Subject-{{i}}
-          <input type="text" formControlName="{{i}}">
-        </label>
-      </div>
-      <div fxFlexAlign="center" class="label">
-        <button (click)="addSubject()" type="button">+</button>
-      </div>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Description:
-        <textarea formControlName="description"></textarea>
-      </label>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Sex:
-        <input type="checkbox" name="sex" formControlName="sex">Male
-      </label>
-      <label fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between" fxLayout.xs="column" fxLayoutGap.xs="1px">
-        Phone:
-        <input type="text" name="tel" formControlName="phone">
-      </label>
-      <div fxFlexAlign="center" class="label">
-        <button type="submit"
-                [disabled]="userForm.invalid">
-          Save
-        </button>
+
+      <ng-container formArrayName="subjects" fxLayout="column">
+        <mat-form-field *ngFor="let subject of subjects.controls; let i = index">
+          <mat-label>
+            Subject-{{i}}
+          </mat-label>
+          <input type="text" formControlName="{{i}}" matInput>
+        </mat-form-field>
+      </ng-container>
+      <button (click)="addSubject()" type="button"
+              mat-raised-button fxFlexAlign="center"
+              style="margin-bottom: 15px">+</button>
+
+      <mat-form-field>
+        <mat-label>
+          Description:
+        </mat-label>
+        <textarea formControlName="description" matInput></textarea>
+      </mat-form-field>
+
+      <mat-checkbox name="sex" formControlName="sex">Male</mat-checkbox>
+
+      <mat-form-field>
+        <mat-label>
+          Phone:
+        </mat-label>
+        <input type="text" name="tel" formControlName="phone" matInput>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-around">
+        <button type="button" (click)="resetForm()" mat-raised-button color="warn">Reset</button>
+        <button mat-raised-button color="primary" fxFlexAlign="center"
+                [disabled]="userForm.invalid"
+        type="submit">Save</button>
       </div>
 
     </form>
   </div>
   <div>
-    <ul *ngFor="let user of savedUsers" class="user-list">
-      <li (click)="setUserToEdit(user.id)">{{user.id}}-{{user.name}}</li>
+    <mat-list class="user-list">
+      <ng-container *ngFor="let user of savedUsers" class="user-list">
+        <mat-list-item (click)="setUserToEdit(user.id)">{{user.id}}-{{user.name}}</mat-list-item>
+      </ng-container>
+    </mat-list>
+    <ul >
+      <li ></li>
     </ul>
   </div>
 </div>

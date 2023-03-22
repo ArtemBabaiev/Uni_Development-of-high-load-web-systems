@@ -12,8 +12,7 @@ button{
 }
 
 .user-list{
-  padding: 0;
-  li:hover{
+  mat-list-item:hover{
     font-weight: bold;
     cursor: pointer;
   }

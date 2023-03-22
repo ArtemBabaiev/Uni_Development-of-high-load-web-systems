@@ -19,6 +19,11 @@ const SAVED_USERS_KEY = "savedUsers"
 export class UserFormComponent implements OnInit{
 
   savedUsers: FormUser[] = []
+  types = [
+    "Type A",
+    "Type B",
+    "Type C"
+  ]
   userForm = this.fb.group({
     id: [{value: null, disabled: true}],
     name: ['', [Validators.required]],
