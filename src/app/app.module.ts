@@ -29,6 +29,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatTabsModule} from "@angular/material/tabs";
+import { CustomSnackbarComponent } from './custom-snackbar/custom-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     Page404Component,
     UserdataComponent,
     HoursPipe,
-    UserFormComponent
+    UserFormComponent,
+    CustomSnackbarComponent
   ],
   imports: [
     BrowserModule,

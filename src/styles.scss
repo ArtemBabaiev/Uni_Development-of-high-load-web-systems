@@ -37,3 +37,27 @@ $AngularLab-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-mdc-snack-bar-container {
+  &.blue-snackbar {
+    --mdc-snackbar-container-color: #2196f3;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+  &.green-snackbar {
+    --mdc-snackbar-container-color: rgb(65, 252, 134);
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+  &.red-snackbar {
+    --mdc-snackbar-container-color: #F44336;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+  &.yellow-snackbar {
+    --mdc-snackbar-container-color: #ffc107;
+    --mat-mdc-snack-bar-button-color: #212529;
+    --mdc-snackbar-supporting-text-color: #212529;
+  }
+}

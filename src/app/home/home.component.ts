@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User, USERS_STORAGE_KEY} from "../app.component";
 import {Sort} from "@angular/material/sort";
+import {NotificationsService} from "../notifications.service";
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,15 @@ export class HomeComponent implements OnInit {
   users: User[] = [];
 
   sortedData: User[];
+
+  constructor(private notificator: NotificationsService) {
+  }
+
+  onTestClick(){
+    this.notificator.info("ButtonPressed")
+  }
+
+
     ngOnInit(): void {
     this.users = JSON.parse(localStorage.getItem(USERS_STORAGE_KEY) ?? "[]");
     this.sortedData = this.users.slice();
