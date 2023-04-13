@@ -87,7 +87,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     if (possibleId == null || possibleId == '') {
       this.storageService.createUser(newUser).pipe(first()).subscribe(
-        isUserCreated =>{
+        isUserCreated => {
           isUserCreated ? this.notificator.success("User successfully created") : this.notificator.error("User with such Id already exists")
         },
         error => {
@@ -96,8 +96,8 @@ export class UserFormComponent implements OnInit, OnDestroy {
       )
     } else {
       this.storageService.updateUser(newUser).pipe(first()).subscribe(
-        isUpdateSuccessful =>{
-          isUpdateSuccessful ? this.notificator.success("User successfully update") : this.notificator.error("No user with such id")
+        isUpdateSuccessful => {
+          isUpdateSuccessful ? this.notificator.success("User successfully updated") : this.notificator.error("No user with such id")
         },
         error => {
           this.notificator.error(error)
@@ -105,6 +105,14 @@ export class UserFormComponent implements OnInit, OnDestroy {
       )
     }
     this.resetForm();
+  }
+
+  deleteUser(id: number) {
+    this.storageService.deleteUser(id).pipe(first()).subscribe(
+      isDeleted => {
+        isDeleted ? this.notificator.success("User deleted") : this.notificator.error("No user with such id")
+      }
+    )
   }
 
   get subjects() {
@@ -132,6 +140,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.storageService.getUserById(id).pipe(first()).subscribe(
       data => {
         toEdit = data
+        this.notificator.info("Got user with Id")
       }
     )
     if (toEdit == undefined) {

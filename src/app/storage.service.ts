@@ -45,11 +45,14 @@ export class StorageService {
     return of(isUpdateSuccessful)
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: number): Observable<boolean> {
+    let prevCount = this.savedUsers.length;
     this.savedUsers = this.savedUsers.filter(function (item) {
       return item.id !== id
     })
     this.saveUsersToLocalStorage()
+    let isDeleted = prevCount != this.savedUsers.length
+    return of(isDeleted)
   }
 
   getUserById(id: number): Observable<FormUser>{

@@ -99,7 +99,7 @@
   <div>
     <mat-list class="user-list">
       <ng-container *ngFor="let user of savedUsers" class="user-list">
-        <mat-list-item (click)="setUserToEdit(user.id)">{{user.id}}-{{user.name}}</mat-list-item>
+        <mat-list-item><span (click)="setUserToEdit(user.id)">{{user.id}}-{{user.name}} </span><button (click)="deleteUser(user.id)">Delete</button> </mat-list-item>
       </ng-container>
     </mat-list>
     <ul >
